@@ -1,0 +1,19 @@
+dados = []
+with open('owid-covid-data.csv', 'r') as arquivo:
+    colunas = arquivo.readline().split(',')
+    for linha in arquivo.readlines():
+        registro = linha.split(',')
+        if registro[0] == 'BRA':
+            dados.append({
+                colunas[2]: registro[2],
+                colunas[3]: registro[3],
+                colunas[5]: registro[5]
+            })
+
+# novos_casos = []
+# for registro in dados:
+#     novos_casos.append(float(registro['new_cases']))
+
+novos_casos = [float(registro['new_cases']) for registro in dados]
+
+print(novos_casos)
