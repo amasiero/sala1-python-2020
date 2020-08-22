@@ -38,3 +38,29 @@ with open('arquivo.txt', 'r') as arquivo:
     for letra, quantidade in zip(alfabeto, letras):
         resultado += f'{letra}="{quantidade}" '
     print(resultado)
+
+# Exercício 6
+import re
+with open('arquivo.txt', 'r') as file:
+    for line in file:
+        text = line.strip()
+        # text = text.replace('a', '*') usando a funcao replace do string
+        text = re.sub(r'[aeiou]', '*', text)
+        print(text)
+
+# Exercício 7
+origem = input('Digite o nome do arquivo de origem: ')
+destino = input('Digite o nome de arquivo de destino: ')
+
+with open(origem, 'r') as o:
+    with open(destino, 'w') as d:
+        for linha in o:
+            d.write(linha.upper())
+
+# converte apenas as vogais para maiusculo
+# texto = 'Como podemos ver, uma lista foi retornada'
+# def toUpperCase(char):
+#   return char.group(0).upper()
+#
+# novo_texto = re.sub(r'[aeiou]', toUpperCase, texto)
+# print(novo_texto)
